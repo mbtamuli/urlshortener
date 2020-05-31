@@ -1,6 +1,6 @@
 from uuid import uuid4
 import json, random, string
-from flask import Flask, escape, request, redirect, render_template
+from flask import Flask, escape, request, redirect, render_template, url_for
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ def randomString():
     return shortstring
 
 @app.route('/', methods=['GET', 'POST'])
-def login():
+def index():
     if request.method == 'POST':
         urls = []
         with open('urls.json') as f:
@@ -20,7 +20,7 @@ def login():
         urls.update(dict([(shortURL,request.form['url'])]))
         with open('urls.json', 'w') as f:
             json.dump(urls, f)
-        return shortURL
+        return request.host_url+'id/'+shortURL
     else:
         return render_template('index.html')
 
