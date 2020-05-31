@@ -1,5 +1,6 @@
 # urlshortener
 
+## Run locally
 1. Get the dependencies
 ```
 pip install -r requirements.txt
@@ -19,3 +20,6 @@ env FLASK_ENV=development FLASK_APP=server.py flask run
 ```
 
 3. Go to http://127.0.0.1:5000/
+
+## Run from the browser
+[![Run on Repl.it](https://repl.it/badge/github/mbtamuli/urlshortener)](https://repl.it/github/mbtamuli/urlshortener)
